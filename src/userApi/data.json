@@ -1,0 +1,70 @@
+[
+    {
+      "id":"1",
+      "avatar":"https://mui.com/static/images/avatar/1.jpg",
+      "participants":{
+        "user1":"Aryan",
+        "user2":"Vishu"
+      },
+      "messages":[
+         {
+            "id":"1",
+            "isSent":true,
+            "time":"2:30",
+            "data":"hi"
+         },
+         {
+          "id":"2",
+          "isSent":false,
+          "time":"2:35",
+          "data":"hello"
+         },
+         {
+          "id":"3",
+          "isSent":true,
+          "time":"2:36",
+          "data":"How are you ?"
+         },
+         {
+          "id":"4",
+          "isSent":false,
+          "time":"2:36",
+          "data":"i am fine"
+         }
+      ]
+    },
+    {
+      "id":"2",
+      "avatar":"https://mui.com/static/images/avatar/3.jpg",
+      "participants":{
+        "user1":"Aryan",
+        "user2":"Nikki"
+      },
+      "messages":[
+         {
+            "id":"1",
+            "isSent":true,
+            "time":"2:30",
+            "data":"hi nikki how are you"
+         },
+         {
+          "id":"2",
+          "isSent":false,
+          "time":"2:35",
+          "data":"i am good how about you :)"
+         },
+         {
+          "id":"3",
+          "isSent":true,
+          "time":"2:36",
+          "data":"i am also good :) ?"
+         },
+         {
+          "id":"4",
+          "isSent":false,
+          "time":"2:36",
+          "data":"so are you coming in party or not ?"
+         }
+      ]
+    }
+  ]

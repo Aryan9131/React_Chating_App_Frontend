@@ -1,2 +1,8 @@
-# React_Chating_App_Frontend
-This project is a frontend for a chat application built with React. It allows users to view conversations, search for contacts, start new chats, and exchange messages. The application utilizes dummy data loaded from a JSON file to simulate conversations and contacts.
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
