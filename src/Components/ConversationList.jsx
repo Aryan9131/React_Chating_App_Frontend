@@ -30,7 +30,7 @@ export const ConversationList = ({ conversations }) => {
                     backgroundColor: clickedConversation?.id == conversation.id ? 'lightGreen' : 'whitesmoke'
                 }}>
                 <span style={{ width: "98%", display: "flex", justifyContent: "space-between" }}>
-                    <span style={{ display: "flex", alignItems: "center", fontSize: "20px", fontWeight: "bold" }}> <Avatar src={conversation.avatar} sx={{ marginRight: "8px" }} />   {conversation.participants.user2}</span>
+                    <span style={{ display: "flex", alignItems: "center", fontSize: "20px", fontWeight: "bold" }}> <Avatar src={conversation.avatar?conversation.avatar:""} sx={{ marginRight: "8px" }} />   {conversation.participants.user2}</span>
                     <span> {conversation.messages.length > 0 ? conversation.messages[conversation.messages.length - 1].time : null}</span>
                 </span>
                 <span style={{ paddingLeft: "50px" }}>
