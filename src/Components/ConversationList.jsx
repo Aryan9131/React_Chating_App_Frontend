@@ -3,7 +3,7 @@ import { userContext } from '../Context/userContext';
 import { Avatar, List, ListItem } from '@mui/material';
 
 export const ConversationList = ({ conversations }) => {
-    const { clickedConversation, setClickedConversation } = useContext(userContext);
+    const { clickedConversation, setClickedConversation } = useContext(userContext); //Current Selected Conversation
 
     return (
         <List

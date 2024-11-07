@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { userContext } from '../Context/userContext';
+import { userContext } from '../Context/userContext'; // Import UserContext for States
 import { Box, IconButton, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { toast } from 'react-toastify';
@@ -46,6 +46,7 @@ export const ChatFooter = () => {
 
     return (
         <Box sx={{ display: "flex", justifyContent: "center", backgroundColor: "wheat" }}>
+            {/* Input field for writing message */}
             <TextField
                 placeholder="Type Message..."
                 value={msgData}

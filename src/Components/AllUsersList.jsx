@@ -14,48 +14,58 @@ import AddIcon from '@mui/icons-material/Add';
 import { toast } from 'react-toastify';
 
 export default function AllUsersListDialog() {
-  const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const [allUsers, setAllUSers] = useState(users)
-  const { clickedConversation, setClickedConversation } = useContext(userContext);
-  const { conversations, setConversations } = useContext(userContext);
+  const [open, setOpen] = React.useState(false); // State to manage dialog visibility
+  const theme = useTheme(); // Access theme for responsive design
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md')); // Determine if dialog should be fullscreen on smaller screens
+  const [allUsers, setAllUsers] = useState(users); // Initialize list of all users from JSON file
+  const { clickedConversation, setClickedConversation } = useContext(userContext); // Access and update selected conversation
+  const { conversations, setConversations } = useContext(userContext); // Access and manage list of conversations
 
+  // Open dialog box
   const handleClickOpen = () => {
     setOpen(true);
   };
 
+  // Close dialog box
   const handleClose = () => {
     setOpen(false);
   };
 
+  // Start or switch to a conversation with a selected user
   const handleStartConversation = (userName) => {
     try {
+      // Check if a conversation with the selected user already exists
       const presentConversation = conversations.find(conver => conver.participants.user2 === userName);
       if (presentConversation) {
-        setClickedConversation(presentConversation)
+        // Set the existing conversation as active
+        setClickedConversation(presentConversation);
       } else {
+        // Create a new conversation if none exists
         const newConversation = {
-          id: `${conversations.length + 1}`,
+          id: `${conversations.length + 1}`, // Assign new conversation ID
           participants: {
             user1: "Aryan",
             user2: userName
           },
-          messages: []
-        }
+          messages: [] // Initialize empty message array
+        };
+        // Update conversations list and set new conversation as active
         setConversations(prevConversations => [...prevConversations, newConversation]);
         setClickedConversation(newConversation);
-        toast.success("User Selected !")
+        toast.success("User Selected!"); // Display success toast
       }
-      handleClose();
+      handleClose(); // Close dialog after selection
     } catch (error) {
-        toast.error("Error while Selecting user for Conversation !")
+      toast.error("Error while selecting user for conversation!"); // Display error toast on failure
     }
-  }
+  };
 
   return (
     <React.Fragment>
+      {/* Button to open dialog */}
       <IconButton onClick={handleClickOpen}><AddIcon /></IconButton>
+      
+      {/* Dialog displaying the list of users */}
       <Dialog
         fullScreen={fullScreen}
         open={open}
@@ -66,29 +76,29 @@ export default function AllUsersListDialog() {
           {"Add User to Conversation"}
         </DialogTitle>
         <DialogContent>
-          <List >
-            {
-              allUsers.map((user, index) => {
-                return (
-                  <ListItem
-                    key={index}
-                    onClick={() => handleStartConversation(user.userName)}
-                    sx={{
-                      display: "flex", justifyContent: "space-between",
-                      borderBottom: "1px solid grey",
-                      '&:hover': {
-                        backgroundColor: "lightgreen"
-                      }
-                    }}>
-                    <span>{user.userName}</span>
-                    <IconButton sx={{ color: "green" }}><StartIcon /></IconButton>
-                  </ListItem>
-                )
-              })
-            }
+          {/* List of all available users */}
+          <List>
+            {allUsers.map((user, index) => (
+              <ListItem
+                key={index}
+                onClick={() => handleStartConversation(user.userName)}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  borderBottom: "1px solid grey",
+                  '&:hover': {
+                    backgroundColor: "lightgreen"
+                  }
+                }}
+              >
+                <span>{user.userName}</span>
+                <IconButton sx={{ color: "green" }}><StartIcon /></IconButton>
+              </ListItem>
+            ))}
           </List>
         </DialogContent>
         <DialogActions>
+          {/* Button to close the dialog */}
           <Button autoFocus onClick={handleClose}>
             Cancel
           </Button>

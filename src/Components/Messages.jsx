@@ -3,9 +3,10 @@ import { userContext} from '../Context/userContext';
 import { List, ListItem } from '@mui/material';
 
 export const Messages = () => {
-    const {clickedConversation} = useContext(userContext);
+    const {clickedConversation} = useContext(userContext); // Current Conversation
 
   return (
+    // List of all the conversation messages
     <List sx={{flex:1, overflowY:"auto"}} >
             {clickedConversation.messages.map(message => (
                 <ListItem key={message.id}

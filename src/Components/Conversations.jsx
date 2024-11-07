@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { userContext } from '../Context/userContext';
-import { SearchBar } from './SearchBar';
-import { ConversationList } from './ConversationList';
-import { Box } from '@mui/material';
-import { ChatHeader } from './ChatHeader';
+import { userContext } from '../Context/userContext'; // import context for states
+import { SearchBar } from './SearchBar';  // searchBar to search based on name
+import { ConversationList } from './ConversationList'; // List of all conversations
+import { Box } from '@mui/material'; //Container
+import { ChatHeader } from './ChatHeader'; // Shows the AllChat Icon and Add(+) icon for users dialog
 export const Conversations = () => {
     const {conversations} = useContext(userContext);
     const [searchTerm, setSearchTerm] = useState('');
