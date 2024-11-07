@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { createContext } from "react";
-import data from '../userApi/data.json'
+import data from '../userApi/conversationsData.json'
 export const userContext=createContext(undefined);
 
 export const UserContextProvider = (props) => {

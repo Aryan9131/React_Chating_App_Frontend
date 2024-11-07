@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { userContext} from './Context/userContext';
 import {Box} from '@mui/material'
-import './App.css'
 import { Conversations } from './Components/Conversations'
 import { ChatingDetails } from './Components/ChatingDetails';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const {clickedConversation} = useContext(userContext);
@@ -19,6 +20,7 @@ function App() {
               <h1>Chat with Friends </h1>
             </Box>
           }
+          <ToastContainer />
        </Box>
   )
 }
